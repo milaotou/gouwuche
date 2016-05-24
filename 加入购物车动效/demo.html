@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	                #box {
+	                        position: absolute;
+	                        width: 50px;
+	                        height: 50px;
+	                        border-radius: 50%;
+	                        background-color: black;
+	                }
+	                
+	                input {
+	                        position: absolute;
+	                        top: 50%;
+	                        left: 50%;
+	                }
+	        </style>
+
+	               
+
+</head>
+<body>
+	<div id="box">
+	</div>
+	<input type="button" value="点我" />
+
+
+	
+	<script>
+	        var box = document.getElementById("box");
+	        var input1 = document.getElementsByTagName("input")[0];
+	        function paoWuXian(dom, speedX, g) {
+	                if (!g) {
+	                        g = 100;
+	                };
+	                if (!speedX) {
+	                        speedX = 100;
+	                };
+	                if (!this.now_time) {
+	                        this.now_time = new Date();
+	                };
+	                var end_time = new Date();
+	                var second = (end_time.getTime() - this.now_time.getTime()) / 1000;
+	                dom.style.left = speedX * second + "px";
+	                dom.style.top = g * Math.pow(second, 2) + "px";
+	        };
+	        input1.addEventListener("click", function() {
+	                setInterval(function() {
+	                        paoWuXian(box);
+	                }, 10);
+	        })
+	</script>
+</body>
+</html>

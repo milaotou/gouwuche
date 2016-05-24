@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style type="text/css">
+#ball{
+        left:0;
+        top:0;
+        height:50px;
+        width:50px;
+        background-color:#0F3;
+        border-radius:25px;
+        position:absolute;
+}
+#btn{
+        position:absolute;
+        left:0;
+        top:80px;
+}
+</style>
+</head>
+
+<body>
+<div id="ball"></div>
+<input type="button" id="btn" value="点我飞"/>
+<script type="text/javascript">
+var ball=document.getElementById('ball');
+var btn=document.getElementById('btn');
+var speed=0;
+var left_position=0;
+var top_position=0;
+btn.onclick=function(){
+  var moving=setInterval(move,30);
+  function move(){
+        if(top_position<560){
+          left_position+=15;
+          ball.style.left=left_position+"px";
+          speed+=1;
+          top_position+=speed;
+          ball.style.top=top_position+"px";
+        }else{
+          clearInterval(moving);
+        }
+  }
+}
+</script>
+</body>
+</html>
